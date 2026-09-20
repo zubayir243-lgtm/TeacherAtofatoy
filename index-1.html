@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>We Love You Teacher Arofatoy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #fff5f7 0%, #ffe6f0 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 100%;
+            position: relative;
+        }
+
+        /* Floating hearts animation */
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px) rotate(0deg);
+                opacity: 1;
+            }
+            50% {
+                transform: translateY(-20px) rotate(10deg);
+            }
+        }
+
+        @keyframes fadeOut {
+            0% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+
+        .heart-float {
+            position: fixed;
+            font-size: 30px;
+            animation: float 4s ease-in-out infinite;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* First Section - Main Love Message */
+        .hero-section {
+            background: linear-gradient(180deg, #FFB6D9 0%, #FFC0CB 50%, #FFE4E1 100%);
+            padding: 60px 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            min-height: 500px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: rgba(255, 192, 203, 0.3);
+            border-radius: 50%;
+            top: 10%;
+            left: 5%;
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            background: rgba(255, 182, 217, 0.2);
+            border-radius: 50%;
+            bottom: 10%;
+            right: 5%;
+            animation: pulse 3s ease-in-out infinite 0.5s;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 0.3;
+            }
+            50% {
+                transform: scale(1.2);
+                opacity: 0.5;
+            }
+        }
+
+        .big-heart {
+            font-size: 120px;
+            margin-bottom: 20px;
+            animation: bounce 1s ease-in-out infinite;
+            z-index: 2;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
+        .hero-text h1 {
+            font-size: 48px;
+            color: #ffffff;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            z-index: 2;
+            position: relative;
+            font-weight: bold;
+        }
+
+        .hero-text p {
+            font-size: 24px;
+            color: #ffffff;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+            z-index: 2;
+            position: relative;
+        }
+
+        /* Hearts scattered around */
+        .scatter-hearts {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+
+        .scatter-heart {
+            position: absolute;
+            font-size: 40px;
+            opacity: 0.6;
+            animation: float 5s ease-in-out infinite;
+        }
+
+        .heart-1 { top: 20%; left: 10%; animation-delay: 0s; font-size: 35px; }
+        .heart-2 { top: 40%; right: 15%; animation-delay: 1s; font-size: 30px; }
+        .heart-3 { bottom: 20%; left: 20%; animation-delay: 2s; font-size: 40px; }
+        .heart-4 { top: 60%; right: 10%; animation-delay: 0.5s; font-size: 25px; }
+        .heart-5 { bottom: 30%; right: 25%; animation-delay: 1.5s; font-size: 35px; }
+
+        /* Love message section */
+        .love-message {
+            padding: 60px 30px;
+            text-align: center;
+            background: linear-gradient(180deg, #FFE4E1 0%, #FFF0F5 100%);
+            position: relative;
+        }
+
+        .love-message h2 {
+            font-size: 36px;
+            color: #E91E63;
+            margin-bottom: 40px;
+            font-weight: bold;
+        }
+
+        .reasons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+
+        .reason-card {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            width: 280px;
+            box-shadow: 0 4px 15px rgba(233, 30, 99, 0.1);
+            border: 2px solid #FFB6D9;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .reason-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(233, 30, 99, 0.2);
+        }
+
+        .reason-card p {
+            color: #E91E63;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        /* Button Section */
+        .button-section {
+            padding: 40px 30px;
+            text-align: center;
+            background: linear-gradient(180deg, #FFF0F5 0%, #fff5f7 100%);
+        }
+
+        .special-btn {
+            background: linear-gradient(135deg, #E91E63 0%, #FF69B4 100%);
+            color: white;
+            border: none;
+            padding: 18px 50px;
+            font-size: 18px;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 8px 25px rgba(233, 30, 99, 0.3);
+            transition: all 0.3s ease;
+            font-weight: bold;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .special-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(233, 30, 99, 0.4);
+        }
+
+        .special-btn:active {
+            transform: translateY(-1px);
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-content {
+            background: linear-gradient(135deg, #fff5f7 0%, #FFE4E1 100%);
+            margin: 5% auto;
+            padding: 40px;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 500px;
+            text-align: center;
+            box-shadow: 0 10px 50px rgba(0, 0, 0, 0.3);
+            animation: slideIn 0.4s ease;
+            border: 3px solid #FFB6D9;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .close-btn {
+            color: #E91E63;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .close-btn:hover {
+            color: #C2185B;
+        }
+
+        .modal-heart {
+            font-size: 60px;
+            margin-bottom: 20px;
+        }
+
+        .modal-content h2 {
+            color: #E91E63;
+            font-size: 32px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .modal-content p {
+            color: #333;
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .special-message {
+            background: linear-gradient(135deg, #FFB6D9 0%, #FF69B4 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin-top: 20px;
+            font-weight: bold;
+            font-size: 16px;
+            box-shadow: 0 5px 15px rgba(233, 30, 99, 0.2);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-text h1 {
+                font-size: 36px;
+            }
+
+            .hero-text p {
+                font-size: 18px;
+            }
+
+            .reason-card {
+                width: 100%;
+                max-width: 250px;
+            }
+
+            .modal-content {
+                width: 85%;
+                padding: 30px 20px;
+            }
+
+            .modal-content h2 {
+                font-size: 24px;
+            }
+
+            .modal-content p {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Hero Section -->
+        <div class="hero-section">
+            <div class="scatter-hearts">
+                <div class="scatter-heart heart-1">❤️</div>
+                <div class="scatter-heart heart-2">💕</div>
+                <div class="scatter-heart heart-3">❤️</div>
+                <div class="scatter-heart heart-4">💖</div>
+                <div class="scatter-heart heart-5">❤️</div>
+            </div>
+
+            <div class="big-heart">❤️</div>
+            <div class="hero-text">
+                <h1>I Love You Teacher Arofatoy</h1>
+                <p>We Love You So Much!</p>
+            </div>
+        </div>
+
+        <!-- Love Message Section -->
+        <div class="love-message">
+            <h2>Why You Are Amazing ✨</h2>
+            <div class="reasons">
+                <div class="reason-card">
+                    <p>💖 You inspire us every single day with your passion and dedication</p>
+                </div>
+                <div class="reason-card">
+                    <p>🌟 Your kindness and patience make learning unforgettable</p>
+                </div>
+                <div class="reason-card">
+                    <p>❤️ You care about each student as a person, not just a student</p>
+                </div>
+                <div class="reason-card">
+                    <p>💝 Your lessons change lives and open new worlds</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Button Section -->
+        <div class="button-section">
+            <button class="special-btn" onclick="openMessage()">💕 Click for Special Message 💕</button>
+        </div>
+
+        <!-- Footer Section -->
+        <div style="background: linear-gradient(180deg, #fff5f7 0%, #FFE4E1 100%); padding: 60px 30px; text-align: center; border-top: 3px solid #FFB6D9;">
+            <p style="color: #E91E63; font-size: 18px; margin-bottom: 15px; line-height: 1.8;">
+                With all my respect and deep admiration<br>
+                to the most wonderful teacher in the world
+            </p>
+            <p style="color: #666; font-size: 16px; margin-bottom: 20px; font-style: italic;">
+                Thank you for inspiring us every single day
+            </p>
+            <div style="background: linear-gradient(135deg, #FFB6D9 0%, #FF69B4 100%); color: white; padding: 15px 30px; border-radius: 30px; display: inline-block; font-size: 18px; font-weight: bold; letter-spacing: 1px;">
+                Your Loyal Student, Zubayir ❤️
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Special Message -->
+    <div id="messageModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeMessage()">&times;</span>
+            <div class="modal-heart">❤️</div>
+            <h2>Dear Teacher Arofatoy</h2>
+            <p><strong>I Love You</strong></p>
+            <p>You are the most beautiful girl in the world</p>
+            <p>I haven't been your student for long, but I already know that you are the best teacher in the world</p>
+            <div class="special-message">
+                Thank you for everything you do! 💕
+            </div>
+            <div style="margin-top: 30px; padding-top: 20px; border-top: 2px solid #FFB6D9;">
+                <p style="color: #888; font-size: 14px; margin-bottom: 10px;">With all my respect and admiration,</p>
+                <p style="color: #E91E63; font-size: 18px; font-weight: bold;">Your Student, Zubayir 💖</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openMessage() {
+            document.getElementById("messageModal").style.display = "block";
+            createFloatingHearts();
+        }
+
+        function closeMessage() {
+            document.getElementById("messageModal").style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById("messageModal");
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        function createFloatingHearts() {
+            const hearts = ['❤️', '💕', '💖', '💗', '💝'];
+            for (let i = 0; i < 15; i++) {
+                setTimeout(() => {
+                    const heart = document.createElement('div');
+                    heart.classList.add('heart-float');
+                    heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+                    heart.style.left = Math.random() * 100 + '%';
+                    heart.style.top = Math.random() * 100 + '%';
+                    heart.style.animation = `float ${3 + Math.random() * 2}s ease-in-out forwards, fadeOut 2s ease-in 3s forwards`;
+                    document.body.appendChild(heart);
+                    
+                    setTimeout(() => heart.remove(), 5000);
+                }, i * 100);
+            }
+        }
+    </script>
+</body>
+</html>
